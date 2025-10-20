@@ -6,20 +6,12 @@ Bu mimari, klasik chatbotlardan farklı olarak yalnızca ezberlenmiş bilgilerle
 
 ---
 
-## Uygulanan RAG Pipeline’ı
 
-* **İçerik Hazırlama:** Seyahat bilgileri Türkçe metin olarak sisteme eklenir.
-* **Chunking (Metin Parçalama):** Metin, bağlam bütünlüğünü koruyacak şekilde küçük parçalara ayrılır.
-* **Embedding Oluşturma:** Her bölüm `paraphrase-multilingual-MiniLM-L12-v2` modeli ile semantik vektörlere dönüştürülür.
-* **Vektör Depolama:** Embedding’ler ChromaDB veritabanında saklanır.
-* **Sorgu Eşleştirme:** Kullanıcı sorusu embedding’e dönüştürülerek en benzer içerik geri çağrılır.
-* **Cevap Üretimi:** Bağlam Gemini modeline aktarılır ve doğal Türkçe yanıt oluşturulur.
 
----
 
 ## Deploy Link
 
-🚀 https://huggingface.co/spaces/esraozNk/travelBuddy
+ 🚀 https://huggingface.co/spaces/esraozNk/travelBuddy 
 
    <img src="assets/chatbotgif.gif" width="700">
 
@@ -28,12 +20,12 @@ Bu mimari, klasik chatbotlardan farklı olarak yalnızca ezberlenmiş bilgilerle
 
 ---
 
+
 ## Veri Seti
 
-Bu uygulama, önceden hazırlanmış büyük bir veri kümesi kullanmak yerine; uygulama içinde tanımlı Türkçe seyahat bilgilerinden yararlanır. Bu bilgiler embedding’e dönüştürülerek ChromaDB’ye kaydedilir. İhtiyaç duyuldukça yeni destinasyon bilgileri eklenebilir.
-
----
-
+ Uygulamada kullanılan seyahat bilgileri, önceden hazırlanmış büyük bir veri kümesinden değil, sistem içine tanımlı Türkçe metinlerden oluşmaktadır.Metinler, bağlam bütünlüğünü koruyacak şekilde 300 karakterlik parçalar halinde bölünmüş ve 50 karakterlik overlap ile birbirine bağlanmıştır. Her parça, paraphrase-multilingual-MiniLM-L12-v2 modeli ile semantik vektörlere dönüştürülmüş ve ChromaDB veritabanına eklenmiştir. Bu yöntem, kullanıcının sorduğu soruya en uygun bağlamın hızlıca bulunmasını ve Gemini LLM ile doğru cevap üretilmesini sağlar.
+   
+  
 ## Özellikler
 
 * **Türkçe Doğal Dil Desteği**
@@ -43,8 +35,23 @@ Bu uygulama, önceden hazırlanmış büyük bir veri kümesi kullanmak yerine; 
 * **Konuşma Geçmişi Desteği**
 * **Genişletilebilir Mimari**
 
----
 
+
+---
+## Çözüm Mimarisi
+Projemiz, kullanıcıların seyahat destinasyonları hakkında hızlı ve doğru bilgi almasını sağlamayı hedefler. Bunu, RAG (Retrieval-Augmented Generation) mimarisi ile gerçekleştirir. Sistem, yalnızca önceden tanımlı bilgileri ezberlemekle kalmaz; kullanıcının sorusuna en uygun bağlamı dinamik olarak seçer ve doğal dilde yanıt üretir.
+
+## Uygulanan RAG Pipeline’ı
+
+* **İçerik Hazırlama:** Seyahat bilgileri Türkçe metin olarak sisteme eklenir.
+* **Chunking (Metin Parçalama):** Metin, bağlam bütünlüğünü koruyacak şekilde küçük parçalara ayrılır.
+* **Embedding Oluşturma:** Her bölüm `paraphrase-multilingual-MiniLM-L12-v2` modeli ile semantik vektörlere dönüştürülür.
+* **Vektör Depolama:** Embedding’ler ChromaDB veritabanında saklanır.
+* **Sorgu Eşleştirme:** Kullanıcı sorusu embedding’e dönüştürülerek en benzer içerik geri çağrılır.
+* **Cevap Üretimi:** Bağlam Gemini modeline aktarılır ve doğal Türkçe yanıt oluşturulur.
+
+
+---
 ## Kullanım Senaryoları
 
 * Tatil planı yapan kullanıcılar
@@ -67,11 +74,7 @@ Bu uygulama, önceden hazırlanmış büyük bir veri kümesi kullanmak yerine; 
 | Retrieval Pipeline | LangChain benzeri yapı                |
 | Dağıtım            | Lokal ortam + Hugging Face Spaces     |
 
----
 
-## Dağıtım
-
-Uygulama şu anda lokal geliştirme ortamında ve Hugging Face Spaces üzerinde deploy edilmiştir. Böylece kullanıcılar internet üzerinden herhangi bir kurulum yapmadan tarayıcı aracılığıyla chatbotu kullanabilmektedir.
 
 ---
 # 🚀Seyahat Chatbotu Kurulum Rehberi
@@ -103,7 +106,7 @@ pip install -r requirements.txt
 # ⚠️ Önemli: .env dosyası .gitignore içinde listelenmiş olmalı
 GOOGLE_API_KEY=your_apikey
 ```
-# 5️⃣ Uygulamayı Çalıştırın
+## 5️⃣ Uygulamayı Çalıştırın
 ```bash
 python main.py
 ```
