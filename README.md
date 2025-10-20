@@ -28,7 +28,7 @@ Bu mimari, klasik chatbotlardan farklı olarak yalnızca ezberlenmiş bilgilerle
 
 ---
 
-## Dataset
+## Veri Seti
 
 Bu uygulama, önceden hazırlanmış büyük bir veri kümesi kullanmak yerine; uygulama içinde tanımlı Türkçe seyahat bilgilerinden yararlanır. Bu bilgiler embedding’e dönüştürülerek ChromaDB’ye kaydedilir. İhtiyaç duyuldukça yeni destinasyon bilgileri eklenebilir.
 
@@ -77,32 +77,38 @@ Uygulama şu anda lokal geliştirme ortamında ve Hugging Face Spaces üzerinde 
 # 🚀Seyahat Chatbotu Kurulum Rehberi
 
 Bu rehber, **Seyahat Chatbotu** projesini bilgisayarınızda çalıştırmak için gerekli adımları içerir.
-
+## 1️⃣ Depoyu Klonlayın
 ```bash
-# 1️⃣ Depoyu Klonlayın
 git clone https://github.com/Esraoznk30/travelChatbot.git
 cd travelChatbot
-
-# 2️⃣ Sanal Ortam Oluşturun ve Aktif Edin
+```
+## 2️⃣ Sanal Ortam Oluşturun ve Aktif Edin
+```bash
 # Windows
 python -m venv venv
 venv\Scripts\activate
-
+```
+```bash
 # Linux / macOS
 python -m venv venv
 source venv/bin/activate
-
-# 3️⃣ Gerekli Paketleri Yükleyin
+```
+## 3️⃣ Gerekli Paketleri Yükleyin
+```bash
 pip install -r requirements.txt
-
-# 4️⃣ API Anahtarını Ayarlayın (.env Dosyası)
+```
+## 4️⃣ API Anahtarını Ayarlayın (.env Dosyası)
+```bash
 # Proje kök dizininde .env dosyası oluşturun ve Google API anahtarınızı ekleyin
 # ⚠️ Önemli: .env dosyası .gitignore içinde listelenmiş olmalı
-echo "GOOGLE_API_KEY=senin_google_api_keyin" > .env
-
+GOOGLE_API_KEY=your_apikey
+```
 # 5️⃣ Uygulamayı Çalıştırın
+```bash
 python main.py
-
-# 6️⃣ Tarayıcıda Erişin
+```
+## 6️⃣ Tarayıcıda Erişin
+```bash
 # Tarayıcınızda aşağıdaki URL'yi açın:
    http://127.0.0.1:7860
+```
