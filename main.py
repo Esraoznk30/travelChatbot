@@ -211,4 +211,4 @@ with gr.Blocks(title="Seyahat Chatbotu") as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch()
