@@ -21,6 +21,11 @@ Bu mimari, klasik chatbotlardan farklı olarak yalnızca ezberlenmiş bilgilerle
 
 🚀 https://huggingface.co/spaces/esraozNk/travelBuddy
 
+   <img src="assets/chatbotgif.gif" width="700">
+
+
+
+
 ---
 
 ## Dataset
@@ -69,3 +74,35 @@ Bu uygulama, önceden hazırlanmış büyük bir veri kümesi kullanmak yerine; 
 Uygulama şu anda lokal geliştirme ortamında ve Hugging Face Spaces üzerinde deploy edilmiştir. Böylece kullanıcılar internet üzerinden herhangi bir kurulum yapmadan tarayıcı aracılığıyla chatbotu kullanabilmektedir.
 
 ---
+# 🚀Seyahat Chatbotu Kurulum Rehberi
+
+Bu rehber, **Seyahat Chatbotu** projesini bilgisayarınızda çalıştırmak için gerekli adımları içerir.
+
+```bash
+# 1️⃣ Depoyu Klonlayın
+git clone https://github.com/Esraoznk30/travelChatbot.git
+cd travelChatbot
+
+# 2️⃣ Sanal Ortam Oluşturun ve Aktif Edin
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux / macOS
+python -m venv venv
+source venv/bin/activate
+
+# 3️⃣ Gerekli Paketleri Yükleyin
+pip install -r requirements.txt
+
+# 4️⃣ API Anahtarını Ayarlayın (.env Dosyası)
+# Proje kök dizininde .env dosyası oluşturun ve Google API anahtarınızı ekleyin
+# ⚠️ Önemli: .env dosyası .gitignore içinde listelenmiş olmalı
+echo "GOOGLE_API_KEY=senin_google_api_keyin" > .env
+
+# 5️⃣ Uygulamayı Çalıştırın
+python main.py
+
+# 6️⃣ Tarayıcıda Erişin
+# Tarayıcınızda aşağıdaki URL'yi açın:
+   http://127.0.0.1:7860
